@@ -22,10 +22,9 @@ public class ModelDisciplina {
 	
 	private static PainelDisciplina paineldisciplina;
 	
-	public ModelDisciplina(String nome, String departamento, int codigo, int semestre, String carga_horaria, String pre_requisito, String tipo, int cod_curso ) {
+	public ModelDisciplina(String nome, String departamento, int semestre, String carga_horaria, String pre_requisito, String tipo, int cod_curso ) {
 		this.nome = nome;
 		this.departamento = departamento;
-		this.codigo = codigo;
 		this.semestre = semestre;
 		this.carga_horaria = carga_horaria;
 		this.pre_requisito = pre_requisito;

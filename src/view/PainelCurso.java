@@ -28,6 +28,7 @@ import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
+import java.awt.event.ActionEvent;
 
 public class PainelCurso extends JPanel{
 	private JLabel lbltitulo;
@@ -131,7 +132,7 @@ public class PainelCurso extends JPanel{
 			JcomboBoxTipodeCurso.setBackground(new Color(198,232,245));
 			JcomboBoxTipodeCurso.setModel(new DefaultComboBoxModel(new String[] {"Selecione","Bacharelado", "Licenciatura",}));
 			JcomboBoxTipodeCurso.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tipo de curso", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			JcomboBoxTipodeCurso.setBounds(472, 179, 147, 50);
+			JcomboBoxTipodeCurso.setBounds(633, 210, 147, 50);
 		}
 		return JcomboBoxTipodeCurso;
 	}
@@ -141,7 +142,7 @@ public class PainelCurso extends JPanel{
 			JcomboBoxModalidadeDeEnsino.setBackground(new Color(198,232,245));
 			JcomboBoxModalidadeDeEnsino.setModel(new DefaultComboBoxModel(new String[] {"Selecione","Presencial", "Distância",}));
 			JcomboBoxModalidadeDeEnsino.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Modalidade de ensino", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			JcomboBoxModalidadeDeEnsino.setBounds(672, 179, 147, 50);
+			JcomboBoxModalidadeDeEnsino.setBounds(456, 210, 147, 50);
 		}
 		return JcomboBoxModalidadeDeEnsino;
 	}
@@ -274,6 +275,7 @@ public class PainelCurso extends JPanel{
 		if (JComboBoxDepartamento == null) {
 			JComboBoxDepartamento = new JComboBox();
 			JComboBoxDepartamento.setBackground(new Color(198,232,245));
+			JComboBoxDepartamento.setModel(new DefaultComboBoxModel(new String[] {"DCT","DCHE","VGA" }));
 			JComboBoxDepartamento.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Departamento", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 			JComboBoxDepartamento.setBounds(456, 109, 220, 50);
 		}
@@ -289,14 +291,18 @@ public class PainelCurso extends JPanel{
 	public JButton getJButtonAlterarDepartamento() {
 		if (jButtonAlterarDepartamento == null) {
 			jButtonAlterarDepartamento = new JButton("Alterar");
-			jButtonAlterarDepartamento.setBounds(795, 121, 89, 23);
+			jButtonAlterarDepartamento.setBounds(683, 162, 97, 23);
 		}
 		return jButtonAlterarDepartamento;
 	}
 	public JButton getJButtonExcluirDepartamento() {
 		if (jButtonExcluirDepartamento == null) {
 			jButtonExcluirDepartamento = new JButton("Excluir");
-			jButtonExcluirDepartamento.setBounds(894, 121, 83, 23);
+			jButtonExcluirDepartamento.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			jButtonExcluirDepartamento.setBounds(683, 85, 97, 23);
 		}
 		return jButtonExcluirDepartamento;
 	}
@@ -304,7 +310,7 @@ public class PainelCurso extends JPanel{
 		if (jSpinnerQuantidadeSemestre == null) {
 			SpinnerModel value =  new SpinnerNumberModel(1,1,12,1);
 			jSpinnerQuantidadeSemestre = new JSpinner(value);
-			jSpinnerQuantidadeSemestre.setBounds(291, 189, 125, 40);
+			jSpinnerQuantidadeSemestre.setBounds(291, 220, 125, 40);
 		}
 		//Integer.parseInt(getJSpinnerQuantidadeSemestre().getValue().toString()); //pegar valor no Spinner
 		
@@ -314,7 +320,7 @@ public class PainelCurso extends JPanel{
 		if (jLabelQuantidadeDeSemestre == null) {
 			jLabelQuantidadeDeSemestre = new JLabel("Quantidade de semestre");
 			jLabelQuantidadeDeSemestre.setFont(new Font("Tahoma", Font.BOLD, 12));
-			jLabelQuantidadeDeSemestre.setBounds(118, 197, 186, 23);
+			jLabelQuantidadeDeSemestre.setBounds(118, 237, 186, 23);
 		}
 		return jLabelQuantidadeDeSemestre;
 	}

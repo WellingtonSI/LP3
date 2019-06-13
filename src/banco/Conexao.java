@@ -10,7 +10,7 @@ public class Conexao {
 		java.sql.Connection conexao = null;
 				String driver = "com.mysql.jdbc.Driver";
 		
-				String url = "jdbc:mysql://localhost:3306/sagres?autoReconnect=true&useSSL=false";
+				String url = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
 				String user= "root";
 				String password = "";
 				

@@ -232,7 +232,7 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 
 	public ControlCurso getControlCurso() {
 		if (controlCurso == null) {
-			controlCurso = new ControlCurso(getTela_curso());
+			controlCurso = new ControlCurso(getTela_curso(),getjFramePrincipal() );
 		}
 		return controlCurso;
 	}

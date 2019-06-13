@@ -19,7 +19,7 @@ public class CursoBanco {
 	
 	public boolean inserir(ModelCurso curs) {
 		// TODO Auto-generated method stub
-		String sql1 = "insert into curso (nome, semestres, tipo, modalidade) values (?, ?, ?, ?)";
+		String sql1 = "insert into curso (IdCurso, nome, semestres, tipo, modalidade) values (?,?, ?, ?, ?)";
 		conexao = Conexao.conector();
 
 		//aki é o sql10

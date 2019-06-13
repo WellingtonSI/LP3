@@ -2,27 +2,35 @@ package control;
 
 import java.awt.event.ActionEvent;
 
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
 import model.ModelCurso;
+import view.GerenciarDepartamento;
+import view.JFramePrincipal;
 import view.PainelCurso;
 import view.PainelMoldura;
+import view.FrameGerenciarDepartamento;
 
 import banco.CursoBanco;
 
 
 public class ControlCurso implements ActionListener{
 	
-    PainelMoldura frame;
-    PainelCurso PainelCurso;
-	ModelCurso modelcurso;
+   private PainelMoldura frame;
+   private PainelCurso PainelCurso;
+   private ModelCurso modelcurso;
+   private static JFramePrincipal jFramePrincipal; 
+   private GerenciarDepartamento gerenciarDepartamento;
+   private static FrameGerenciarDepartamento FrameGerenciarDepartamento;
 	
-	public ControlCurso(PainelCurso PainelCurso) {
+	
+	public ControlCurso(PainelCurso PainelCurso, JFramePrincipal jFramePrincipal) {
 
 		this.PainelCurso = PainelCurso;
-		
+		this.jFramePrincipal = jFramePrincipal;
 
 		
 		addEventos();
@@ -32,6 +40,9 @@ public class ControlCurso implements ActionListener{
 		private void addEventos() {
 				
 			PainelCurso().getjButtonCadastrar().addActionListener(this);
+			PainelCurso().getJButtonAdicionarDepartamento().addActionListener(this);
+			PainelCurso().getJButtonExcluirDepartamento().addActionListener(this);
+			PainelCurso().getJButtonAlterarDepartamento().addActionListener(this);
 		}
 			
 
@@ -69,6 +80,19 @@ public class ControlCurso implements ActionListener{
 			
 				
 			}
+			else if(e.getSource()  == PainelCurso().getJButtonAdicionarDepartamento())
+			{
+				gerenciarDepartamento=null;
+				FrameGerenciarDepartamento=null;
+				getGerenciarDepartamento().getJButtonConfirmar().addActionListener(this);
+				getGerenciarDepartamento().getJButtonCancelar().addActionListener(this);
+				getFrameGerenciarDepartamento().setContentPane(getGerenciarDepartamento());
+				getFrameGerenciarDepartamento().repaint();
+				getFrameGerenciarDepartamento().validate();
+				
+				
+				
+			}
 			
 			
 		}
@@ -90,6 +114,26 @@ public class ControlCurso implements ActionListener{
 		}
 		return modelcurso;
 	}
+	
+	public static JFramePrincipal getJFramePrincipal() {
+		if (jFramePrincipal == null) {
+			jFramePrincipal = new JFramePrincipal();
+		}
+		return jFramePrincipal;
+	}
+	
+	private GerenciarDepartamento getGerenciarDepartamento() {
+		if(gerenciarDepartamento == null)
+		{
+			gerenciarDepartamento = new GerenciarDepartamento();
+		}
+		return gerenciarDepartamento;
+	}
 
-
+	public static FrameGerenciarDepartamento getFrameGerenciarDepartamento() {
+		if (FrameGerenciarDepartamento == null) {
+			FrameGerenciarDepartamento = new FrameGerenciarDepartamento();
+		}
+		return FrameGerenciarDepartamento;
+	}
 }

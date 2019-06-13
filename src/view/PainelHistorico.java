@@ -228,6 +228,7 @@ public class PainelHistorico extends JPanel {
 			jComboBoxAluno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 			jComboBoxAluno.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Aluno", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 			jComboBoxAluno.setBounds(478, 101, 418, 52);
+			jComboBoxAluno.setEnabled(false);
 		}
 		return jComboBoxAluno;
 	}
@@ -236,6 +237,7 @@ public class PainelHistorico extends JPanel {
 			jComboBoxSemestre = new JComboBox();
 			jComboBoxSemestre.setBounds(90, 179, 325, 52);
 			jComboBoxSemestre.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Semestre", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			jComboBoxSemestre.setEnabled(false);
 		}
 		return jComboBoxSemestre;
 	}
@@ -244,6 +246,7 @@ public class PainelHistorico extends JPanel {
 			jComboBoxDisciplina = new JComboBox();
 			jComboBoxDisciplina.setBounds(478, 179, 418, 52);
 			jComboBoxDisciplina.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Disciplina", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			jComboBoxDisciplina.setEnabled(false);
 		}
 		return jComboBoxDisciplina;
 	}

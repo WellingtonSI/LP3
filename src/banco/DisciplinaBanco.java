@@ -24,7 +24,7 @@ public class DisciplinaBanco {
 
 	
 		// TODO Auto-generated method stub
-		String sql1 = "insert into disciplina (codigo, nome, departamento, semestre, carga_horaria, pre_requisito, tipo, Curso_codigo) values (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql1 = "insert into disciplina (codigoDisciplina, nome, semestre, cargaHoraria, pre_requisito, tipo, Curso_codigo) values (?, ?, ?, ?, ?, ?, ?)";
 		conexao = Conexao.conector();
 
 		//aki é o sql1
@@ -48,7 +48,7 @@ public class DisciplinaBanco {
 			conexao.close();
 		} catch (Exception e) {
 			// TODO: handle exception
-				System.out.println("Erro inserir disciplina"+e);	
+				System.out.println("Erro ao inserir disciplina - "+e);	
 		}								
 	
 		return false;
@@ -56,7 +56,7 @@ public class DisciplinaBanco {
 	
 	
 	public ArrayList<String> listarDisciplinas(String stringBusca){
-		String sql1 = "SELECT `codigo`, `nome` FROM `disciplina` WHERE `nome` LIKE ?";
+		String sql1 = "SELECT `codigoDisciplina`, `nome` FROM `disciplina` WHERE `nome` LIKE ?";
 		//String sql1 = "SELECT `codigo` FROM `curso` WHERE `codigo` LIKE ?";
 		conexao = Conexao.conector();
 		ArrayList<String> lista = new ArrayList<String>();
@@ -69,7 +69,7 @@ public class DisciplinaBanco {
 			rs = pst.executeQuery();
             while(rs.next()) {
             	//lista.add(rs.getString("nome"));
-            	lista.add(rs.getString("codigo")+"-"+rs.getString("nome"));
+            	lista.add(rs.getString("codigoDisciplina")+"-"+rs.getString("nome"));
             }
 			conexao.close();
 		} catch (Exception e) {
