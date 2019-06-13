@@ -40,7 +40,7 @@ public class ControlCurso implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			
 			boolean nome = Modelcurso().TesteNome();
-			boolean quantidade  = Modelcurso().TesteQuantidadeSemestre();
+			//boolean quantidade  = Modelcurso().TesteQuantidadeSemestre();
 			boolean tipocurso = Modelcurso().TesteTipodeCurso();
 			boolean modalidadensino = Modelcurso().ModalidadeDeEnsino();
 			
@@ -50,16 +50,16 @@ public class ControlCurso implements ActionListener{
 					PainelCurso.displayErrorMessage("Digite um nome válido");
 	
 				}
-				if (!(quantidade)) {
+				/*if (!(quantidade)) {
 					PainelCurso.displayErrorMessage("Preencha o campo de quantidade de semestre");
-				}
+				}*/
 				if (!(tipocurso)) {
 					PainelCurso.displayErrorMessage("Escolha um tipo de curso");
 				}
 				if (!(modalidadensino)) {
 					PainelCurso.displayErrorMessage("Escolha uma modalidade de ensino");
 				}
-				else if(nome && quantidade && tipocurso && modalidadensino )
+				else if(nome /*&& quantidade*/ && tipocurso && modalidadensino )
 				{
 					Modelcurso().GuardandoDados();
 					Modelcurso().limpaCampos();

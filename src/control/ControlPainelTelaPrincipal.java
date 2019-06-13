@@ -1,6 +1,7 @@
 package control;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 
@@ -15,6 +16,7 @@ import view.PainelMoldura;
 import view.PainelProfessor;
 import view.PainelTelaPrincipal;
 import view.PainelTurma;
+import view.PainelHistorico;
 
 public class ControlPainelTelaPrincipal implements ActionListener {
 
@@ -25,6 +27,28 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 	private ControlDisciplina controlDisciplina;
 	private ControlTurma controlTurma;
 	private ControlCurso controlCurso;
+	private ControlHistorico controlHistorico;
+	
+	
+	
+	public static JFramePrincipal getJframePrincipal() {
+		return jframePrincipal;
+	}
+
+	
+
+	/*public PainelProfessor getTelaProfessor() {
+		return telaProfessor;
+	}
+
+	public PainelDisciplina getTelaDisciplina() {
+		return telaDisciplina;
+	}
+
+	public PainelCurso getTelaCurso() {
+		return telaCurso;
+	}*/
+
 	private ControlPainelTelaPrincipal controlPainelTelaPrincipal;
 
 	private PainelAluno painelAluno;
@@ -32,6 +56,7 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 	private PainelDisciplina telaDisciplina;
 	private PainelTurma painelTurma;
 	private PainelCurso telaCurso;
+	private PainelHistorico painelHistorico;
 	private PainelMoldura imagem;
 
 	public static void main(String[] args) {
@@ -59,6 +84,7 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 		getjFramePrincipal().getmenuItemAluno().addActionListener(this);
 		getjFramePrincipal().getmenuItemTurma().addActionListener(this);
 		getjFramePrincipal().getmenuItemCurso().addActionListener(this);
+		getjFramePrincipal().getmenuItemHistorico().addActionListener(this);
 	}
 
 	@Override
@@ -109,6 +135,13 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 			getjFramePrincipal().validate();
 			getControlPainelTelaPrincipal();
 
+		} else if (e.getSource() == getjFramePrincipal().getmenuItemHistorico()) {
+			
+			getjFramePrincipal().setContentPane(getPainelHistorico());
+			getjFramePrincipal().setTitle("Histórico");
+			getjFramePrincipal().repaint();
+			getjFramePrincipal().validate();
+			getControlHistorico();
 		}
 
 	}
@@ -161,6 +194,13 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 		}
 		return telaCurso;
 	}
+	
+	public PainelHistorico getPainelHistorico() {
+		if (painelHistorico == null) {
+			painelHistorico = new PainelHistorico();
+		}
+		return painelHistorico;
+	}
 
 	public PainelMoldura getImagem() {
 		if (imagem == null) {
@@ -196,6 +236,7 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 		}
 		return controlCurso;
 	}
+	
 
 	public ControlTurma getControlTurma() {
 		if (controlTurma == null) {
@@ -209,6 +250,13 @@ public class ControlPainelTelaPrincipal implements ActionListener {
 			controlPainelTelaPrincipal = new ControlPainelTelaPrincipal(getjFramePrincipal());
 		}
 		return controlPainelTelaPrincipal;
+	}
+	
+	public ControlHistorico getControlHistorico() {
+		if(controlHistorico == null){
+			controlHistorico = new ControlHistorico(getPainelHistorico()); 
+		}
+		return controlHistorico;
 	}
 
 }

@@ -32,6 +32,7 @@ public class JFramePrincipal extends JFrame  {
 	private JMenuItem menuItemAluno = null;
 	private JMenuItem menuItemTurma = null;
 	private JMenuItem menuItemCurso = null;
+	private JMenuItem menuItemHistorico = null;
 	private static JFramePrincipal jframPrincipal;
 	private static PainelTelaPrincipal painelTelaPrincipal;
 	
@@ -75,6 +76,7 @@ public class JFramePrincipal extends JFrame  {
 			menu.add(getmenuItemAluno());
 			menu.add(getmenuItemTurma());
 			menu.add(getmenuItemCurso());
+			menu.add(getmenuItemHistorico());
 			
 
 			
@@ -123,6 +125,13 @@ public class JFramePrincipal extends JFrame  {
 			menuItemCurso = new JMenuItem("Curso");
 		}
 		return menuItemCurso;
+	}
+	
+	public JMenuItem getmenuItemHistorico(){
+		if(menuItemHistorico == null) {
+			menuItemHistorico = new JMenuItem("Historico");
+		}
+		return menuItemHistorico;
 	}
 	
 	public static JFramePrincipal getjFramPrincipal() {

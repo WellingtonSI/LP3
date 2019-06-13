@@ -41,12 +41,12 @@ public class ModelCurso {
 		String numeros = "0123457899";
 		for (int i = 0; i < 10; i++) {
 		
-			if (painelcurso.getTextFieldNome().getText().contains(Character.toString(numeros.charAt(i)))) {
+			if (painelcurso.getJLabelNomeCurso().getText().contains(Character.toString(numeros.charAt(i)))) {
 				return false;
 			}
 		}
-		if (painelcurso.getTextFieldNome().getText().equals(null)
-				|| painelcurso.getTextFieldNome().getText().equals("")) {
+		if (painelcurso.getJLabelNomeCurso().getText().equals(null)
+				|| painelcurso.getJLabelNomeCurso().getText().equals("")) {
 
 			return false;
 		} else
@@ -54,12 +54,12 @@ public class ModelCurso {
 
 	}
 
-	public boolean TesteQuantidadeSemestre() {
+	/*public boolean TesteQuantidadeSemestre() {
 		if(painelcurso.getJtextFieldQuantidadeDeSemestre().getText().equals(""))
 			return false;
 		else
 			return true;
-	}
+	}*/
 	
 	public boolean TesteTipodeCurso() {
 		
@@ -94,7 +94,7 @@ public class ModelCurso {
 	
 public void GuardandoDados () {
 			
-	this.nome = (painelcurso.getTextFieldNome().getText().toUpperCase());
+	this.nome = (painelcurso.getJLabelNomeCurso().getText().toUpperCase());
 	//this.semestres = Integer.parseInt(painelcurso.getJtextFieldQuantidadeDeSemestre().getText().toUpperCase());
 	
 	JComboBox <String> tipo = painelcurso.getJcomboBoxTipodeCurso();
@@ -109,8 +109,8 @@ public void GuardandoDados () {
 
 public void limpaCampos() {
 
-	getPainelCurso().getTextFieldNome().setText("");
-	getPainelCurso().getJtextFieldQuantidadeDeSemestre().setText("");
+	getPainelCurso().getJLabelNomeCurso().setText("");
+	//getPainelCurso().getJtextFieldQuantidadeDeSemestre().setText("");
 	getPainelCurso().getJcomboBoxTipodeCurso().setSelectedIndex(0);
 	getPainelCurso().getJcomboBoxModalidadeDeEnsino().setSelectedIndex(0);
 	

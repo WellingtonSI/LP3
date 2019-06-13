@@ -24,16 +24,16 @@ import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextField;
+import javax.swing.JSpinner;
 
 public class PainelCurso extends JPanel{
 	private JLabel lbltitulo;
-	private JLabel lblNome;
-	private JButton btnFluxograma;
+	private JLabel jLabelNomeCurso;
 	private JButton jButtonCadastrar;
-	private JTextField textFieldNome;
-	private JLabel lblQuantidadeDeSemestres;
-	private JFormattedTextField JtextFieldQuantidadeDeSemestre;
+	private JTextField jTextFieldNomeCurso;
 	private JComboBox<String> JcomboBoxTipodeCurso;
 	private JComboBox<String> JcomboBoxModalidadeDeEnsino;
 	private FormataMascaras formataMascaras;
@@ -48,6 +48,12 @@ public class PainelCurso extends JPanel{
 	private JTable jTableCurso;
 	private DefaultTableModel defaulTableModelCurso ;
 	private JScrollPane jSCrollPaneCurso;
+	private JComboBox JComboBoxDepartamento;
+	private JButton jButtonAdicionarDepartamento;
+	private JButton jButtonAlterarDepartamento;
+	private JButton jButtonExcluirDepartamento;
+	private JSpinner jSpinnerQuantidadeSemestre;
+	private JLabel jLabelQuantidadeDeSemestre;
 	
 	
 	
@@ -55,12 +61,9 @@ public class PainelCurso extends JPanel{
 		this.setLayout(null);
 		setBackground(new Color(198,232,245));
 		add(getLbltitulo());
-		add(getLblNome());
-		add(getBtnFluxograma());
+		add(getJLabelNomeCurso());
 		add(getjButtonCadastrar());
-		add(getTextFieldNome());
-		add(getLblQuantidadeDeSemestres());
-		add(getJtextFieldQuantidadeDeSemestre());
+		add(getJTextFieldNomeCurso());
 		add(getJcomboBoxTipodeCurso());
 		add(getJcomboBoxModalidadeDeEnsino());
 		add(getJComboBoxPesquisa());
@@ -73,30 +76,30 @@ public class PainelCurso extends JPanel{
 		add(getSeparator());
 		add(getjTableCurso());
 		add(getjSCrollPaneCurso());
+		add(getJComboBoxDepartamento());
+		add(getJButtonAdicionarDepartamento());
+		add(getJButtonAlterarDepartamento());
+		add(getJButtonExcluirDepartamento());
+		add(getJSpinnerQuantidadeSemestre());
+		add(getJLabelQuantidadeDeSemestre());
 		
+		//Integer.parseInt(getJSpinnerQuantidadeSemestre().getValue().toString());
 	}
 	public JLabel getLbltitulo() {
 		if (lbltitulo == null) {
 			lbltitulo = new JLabel("Cadastro curso");
 			lbltitulo.setFont(new Font("Tahoma", Font.BOLD, 23));
-			lbltitulo.setBounds(272, 27, 252, 34);
+			lbltitulo.setBounds(118, 25, 252, 34);
 		}
 		return lbltitulo;
 	}
-	public JLabel getLblNome() {
-		if (lblNome == null) {
-			lblNome = new JLabel("Nome");
-			lblNome.setFont(new Font("Tahoma", Font.PLAIN, 13));
-			lblNome.setBounds(202, 109, 58, 23);
+	public JLabel getJLabelNomeCurso() {
+		if (jLabelNomeCurso == null) {
+			jLabelNomeCurso = new JLabel("Nome");
+			jLabelNomeCurso.setFont(new Font("Tahoma", Font.BOLD, 12));
+			jLabelNomeCurso.setBounds(118, 133, 58, 23);
 		}
-		return lblNome;
-	}
-	public JButton getBtnFluxograma() {
-		if (btnFluxograma == null) {
-			btnFluxograma = new JButton("Fluxograma");
-			btnFluxograma.setBounds(202, 261, 108, 23);
-		}
-		return btnFluxograma;
+		return jLabelNomeCurso;
 	}
 	public JButton getjButtonCadastrar() {
 		if (jButtonCadastrar == null) {
@@ -107,30 +110,13 @@ public class PainelCurso extends JPanel{
 		}
 		return jButtonCadastrar;
 	}
-	public JTextField getTextFieldNome() {
-		if (textFieldNome == null) {
-			textFieldNome = new JTextField();
-			textFieldNome.setBounds(375, 111, 228, 20);
-			textFieldNome.setColumns(10);
+	public JTextField getJTextFieldNomeCurso() {
+		if (jTextFieldNomeCurso == null) {
+			jTextFieldNomeCurso = new JTextField();
+			jTextFieldNomeCurso.setBounds(175, 123, 240, 33);
+			jTextFieldNomeCurso.setColumns(10);
 		}
-		return textFieldNome;
-	}
-	public JLabel getLblQuantidadeDeSemestres() {
-		if (lblQuantidadeDeSemestres == null) {
-			lblQuantidadeDeSemestres = new JLabel("Quantidade de semestres");
-			lblQuantidadeDeSemestres.setFont(new Font("Tahoma", Font.PLAIN, 13));
-			lblQuantidadeDeSemestres.setBounds(202, 143, 160, 14);
-		}
-		return lblQuantidadeDeSemestres;
-	}
-	public JFormattedTextField getJtextFieldQuantidadeDeSemestre() {
-		if (JtextFieldQuantidadeDeSemestre == null) {
-			JtextFieldQuantidadeDeSemestre = new JFormattedTextField();
-			//JtextFieldQuantidadeDeSemestre.setFormatterFactory(formataMascaras().getQuantidadeSemestre());
-			JtextFieldQuantidadeDeSemestre.setBounds(375, 141, 228, 20);
-			JtextFieldQuantidadeDeSemestre.setColumns(10);
-		}
-		return JtextFieldQuantidadeDeSemestre;
+		return jTextFieldNomeCurso;
 	}
 	 public FormataMascaras formataMascaras() {
 	        if (formataMascaras == null) {
@@ -145,7 +131,7 @@ public class PainelCurso extends JPanel{
 			JcomboBoxTipodeCurso.setBackground(new Color(198,232,245));
 			JcomboBoxTipodeCurso.setModel(new DefaultComboBoxModel(new String[] {"Selecione","Bacharelado", "Licenciatura",}));
 			JcomboBoxTipodeCurso.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tipo de curso", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			JcomboBoxTipodeCurso.setBounds(202, 183, 147, 50);
+			JcomboBoxTipodeCurso.setBounds(472, 179, 147, 50);
 		}
 		return JcomboBoxTipodeCurso;
 	}
@@ -155,7 +141,7 @@ public class PainelCurso extends JPanel{
 			JcomboBoxModalidadeDeEnsino.setBackground(new Color(198,232,245));
 			JcomboBoxModalidadeDeEnsino.setModel(new DefaultComboBoxModel(new String[] {"Selecione","Presencial", "Distância",}));
 			JcomboBoxModalidadeDeEnsino.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Modalidade de ensino", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			JcomboBoxModalidadeDeEnsino.setBounds(456, 183, 147, 50);
+			JcomboBoxModalidadeDeEnsino.setBounds(672, 179, 147, 50);
 		}
 		return JcomboBoxModalidadeDeEnsino;
 	}
@@ -252,7 +238,7 @@ public class PainelCurso extends JPanel{
 	public DefaultTableModel getDefaultTableModel() {
 		if (defaulTableModelCurso == null) {
 			defaulTableModelCurso = new DefaultTableModel(new Object[][] {},
-					new String[] {  "Nome", "Tipo de Curso", "Modalidade de ensino"  }) {
+					new String[] {  "Nome", "Código", "Departamento"  }) {
 				public boolean isCellEditable(int row, int column) {
 					return false;
 
@@ -283,5 +269,53 @@ public class PainelCurso extends JPanel{
 			jSCrollPaneCurso.setSize(832, 148);
 		}
 		return jSCrollPaneCurso;
+	}
+	public JComboBox getJComboBoxDepartamento() {
+		if (JComboBoxDepartamento == null) {
+			JComboBoxDepartamento = new JComboBox();
+			JComboBoxDepartamento.setBackground(new Color(198,232,245));
+			JComboBoxDepartamento.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Departamento", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			JComboBoxDepartamento.setBounds(456, 109, 220, 50);
+		}
+		return JComboBoxDepartamento;
+	}
+	public JButton getJButtonAdicionarDepartamento() {
+		if (jButtonAdicionarDepartamento == null) {
+			jButtonAdicionarDepartamento = new JButton("Adicionar");
+			jButtonAdicionarDepartamento.setBounds(683, 121, 97, 23);
+		}
+		return jButtonAdicionarDepartamento;
+	}
+	public JButton getJButtonAlterarDepartamento() {
+		if (jButtonAlterarDepartamento == null) {
+			jButtonAlterarDepartamento = new JButton("Alterar");
+			jButtonAlterarDepartamento.setBounds(795, 121, 89, 23);
+		}
+		return jButtonAlterarDepartamento;
+	}
+	public JButton getJButtonExcluirDepartamento() {
+		if (jButtonExcluirDepartamento == null) {
+			jButtonExcluirDepartamento = new JButton("Excluir");
+			jButtonExcluirDepartamento.setBounds(894, 121, 83, 23);
+		}
+		return jButtonExcluirDepartamento;
+	}
+	public JSpinner getJSpinnerQuantidadeSemestre() {
+		if (jSpinnerQuantidadeSemestre == null) {
+			SpinnerModel value =  new SpinnerNumberModel(1,1,12,1);
+			jSpinnerQuantidadeSemestre = new JSpinner(value);
+			jSpinnerQuantidadeSemestre.setBounds(291, 189, 125, 40);
+		}
+		//Integer.parseInt(getJSpinnerQuantidadeSemestre().getValue().toString()); //pegar valor no Spinner
+		
+		return jSpinnerQuantidadeSemestre;
+	}
+	public JLabel getJLabelQuantidadeDeSemestre() {
+		if (jLabelQuantidadeDeSemestre == null) {
+			jLabelQuantidadeDeSemestre = new JLabel("Quantidade de semestre");
+			jLabelQuantidadeDeSemestre.setFont(new Font("Tahoma", Font.BOLD, 12));
+			jLabelQuantidadeDeSemestre.setBounds(118, 197, 186, 23);
+		}
+		return jLabelQuantidadeDeSemestre;
 	}
 }

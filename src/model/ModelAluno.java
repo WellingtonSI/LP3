@@ -99,8 +99,7 @@ public class ModelAluno {
 		this.cpf = (painelaluno.getFormattedTextFieldCPF().getText().toUpperCase());
 		this.rg = (painelaluno.getFormattedTextFieldRG().getText().toUpperCase());
 		
-		JComboBox <String> turma = painelaluno.getJcomboboxTurma();
-		this.turma= Integer.parseInt(painelaluno.getJcomboboxTurma().getSelectedItem().toString());
+		
 		
 		JComboBox <String> curso = painelaluno.getJComboBoxCurso();
 		this.curso= Integer.parseInt(painelaluno.getJComboBoxCurso().getSelectedItem().toString().split("-")[0]);
@@ -116,7 +115,6 @@ public class ModelAluno {
 		getPainelAluno().getFormattedTextFieldCPF().setText("");
 		getPainelAluno().getFormattedTextFieldRG().setText("");
 		getPainelAluno().getJComboBoxCurso().setSelectedIndex(0);
-		getPainelAluno().getJcomboboxTurma().setSelectedIndex(0);
 
 	}
 

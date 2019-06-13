@@ -1,29 +1,28 @@
 package banco;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-<<<<<<< HEAD
+
 import model.ModelDisciplina;
-=======
-import model.model_disciplina;
->>>>>>> 64a1a394b7a8ac2448fbf053245823a1f6fa18a4
+
+
 
 public class DisciplinaBanco {
 	
 	Connection conexao = null;
 	PreparedStatement pst = null;
 	ResultSet rs = null;
-	
-<<<<<<< HEAD
+
+
 	public boolean inserir(ModelDisciplina disc) {
-=======
-	public boolean inserir(model_disciplina disc) {
->>>>>>> 64a1a394b7a8ac2448fbf053245823a1f6fa18a4
+
+	
 		// TODO Auto-generated method stub
 		String sql1 = "insert into disciplina (codigo, nome, departamento, semestre, carga_horaria, pre_requisito, tipo, Curso_codigo) values (?, ?, ?, ?, ?, ?, ?, ?)";
 		conexao = Conexao.conector();

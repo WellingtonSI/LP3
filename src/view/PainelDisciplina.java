@@ -36,17 +36,13 @@ public class PainelDisciplina extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textFieldDepartamento;
 	private JTextField textFieldNome;
 	private JLabel lblNome;
-	private JLabel lblDepartamento;
 	private JButton jButtonCadastrar;
 	private JLabel lblCadastroDisciplina;
 	private JComboBox <String> jcomboboxCargaHoraria;
 	private JComboBox <String> jcomboboxCurso;
 	private JComboBox<String> comboBox;
-	private JLabel lblCodigo;
-	private JTextField textFieldCodigo;
 	private JLabel lblSemestre;
 	private JTextField textFieldSemestre;
 	private JComboBox<String> jcomboBoxPreRequisito;
@@ -66,6 +62,7 @@ public class PainelDisciplina extends JPanel {
 	private JTable jTableDisciplina;
 	private DefaultTableModel defaulTableModelDisciplina ;
 	private JScrollPane jSCrollPaneDisciplina;
+	private JComboBox<String> jComboboxArea;
 	
 	
 
@@ -78,16 +75,12 @@ public class PainelDisciplina extends JPanel {
 		setLayout(null);
 		setVisible(true);
 		setBackground(new Color(198,232,245));
-		add(getTextFieldDepartamento());
 		add(getTextFieldNome());
 		add(getLblNome());
-		add(getLblDepartamento());
 		add(getjButtonCadastrar());
 		add(getLblCadastroDisciplina());
 		add(getJcomboboxCargaHoraria());
 		add(getJComboBoxCurso());
-		add(getLblCodigo());
-		add(getTextFieldCodigo());
 		add(getLblSemestre());
 		add(getTextFieldSemestre());
 		add(getJcomboBoxPreRequisito());
@@ -104,22 +97,7 @@ public class PainelDisciplina extends JPanel {
 		add(getSeparator());
 		add(getjTableDisciplina());
 		add(getjSCrollPaneDisciplina());
-<<<<<<< HEAD
-	
-=======
-		//
-		
->>>>>>> 64a1a394b7a8ac2448fbf053245823a1f6fa18a4
-	}
-	
-	public JTextField getTextFieldDepartamento() {
-		
-		if(textFieldDepartamento == null) {
-			textFieldDepartamento = new JTextField();
-			textFieldDepartamento.setBounds(554, 91, 231, 20);
-		}
-		
-		return textFieldDepartamento;
+
 	}
 	
 	public JTextField getTextFieldNome() {
@@ -139,17 +117,6 @@ public class PainelDisciplina extends JPanel {
 			lblNome.setBounds(100, 94, 46, 14);
 		}
 		return lblNome;
-	}
-	
-	
-	
-	public JLabel getLblDepartamento() {
-		if(lblDepartamento == null) {
-			lblDepartamento = new JLabel();
-			lblDepartamento.setText("Departamento");
-			lblDepartamento.setBounds(454, 84, 90, 35);
-		}
-		return lblDepartamento;
 	}
 	
 	public JButton getjButtonCadastrar() {
@@ -179,7 +146,7 @@ public class PainelDisciplina extends JPanel {
 			jcomboboxCargaHoraria.setBackground(new Color(198,232,245));
 			jcomboboxCargaHoraria.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "30 (2 / semana)", "45 (3 / semana)", "60 (4 / semana)", "75 (5 / semana)", "90 (6 / semana)"}));
 			jcomboboxCargaHoraria.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Carga Hor\u00E1ria", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			jcomboboxCargaHoraria.setBounds(100, 179, 147, 50);
+			jcomboboxCargaHoraria.setBounds(100, 134, 147, 50);
 
 		}
 		return jcomboboxCargaHoraria;
@@ -197,37 +164,22 @@ public class PainelDisciplina extends JPanel {
 			jcomboboxCurso.setModel(new DefaultComboBoxModel(c.listarCursos("%").toArray()));
 			jcomboboxCurso.setBackground(new Color(198,232,245));
 			jcomboboxCurso.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Curso", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			jcomboboxCurso.setBounds(100, 240, 147, 50);
+			jcomboboxCurso.setBounds(100, 195, 147, 50);
 		}
 		return jcomboboxCurso;
-	}
-	public JLabel getLblCodigo() {
-		if (lblCodigo == null) {
-			lblCodigo = new JLabel();
-			lblCodigo.setText("C\u00F3digo da disciplina");
-			lblCodigo.setBounds(423, 122, 131, 35);
-		}
-		return lblCodigo;
-	}
-	public JTextField getTextFieldCodigo() {
-		if (textFieldCodigo == null) {
-			textFieldCodigo = new JTextField();
-			textFieldCodigo.setBounds(554, 129, 231, 20);
-		}
-		return textFieldCodigo;
 	}
 	public JLabel getLblSemestre() {
 		if (lblSemestre == null) {
 			lblSemestre = new JLabel();
 			lblSemestre.setText("Semestre");
-			lblSemestre.setBounds(100, 122, 82, 35);
+			lblSemestre.setBounds(448, 83, 82, 35);
 		}
 		return lblSemestre;
 	}
 	public JTextField getTextFieldSemestre() {
 		if (textFieldSemestre == null) {
 			textFieldSemestre = new JTextField();
-			textFieldSemestre.setBounds(166, 129, 231, 20);
+			textFieldSemestre.setBounds(514, 90, 231, 20);
 		}
 		return textFieldSemestre;
 	}
@@ -239,7 +191,7 @@ public class PainelDisciplina extends JPanel {
 			jcomboBoxPreRequisito.setModel(new DefaultComboBoxModel(d.listarDisciplinas("%").toArray()));
 			
 			jcomboBoxPreRequisito.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Escolha os Pr\u00E9-Requisitos", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			jcomboBoxPreRequisito.setBounds(260, 179, 179, 50);
+			jcomboBoxPreRequisito.setBounds(260, 134, 179, 50);
 		}
 		return jcomboBoxPreRequisito;
 	}
@@ -250,7 +202,7 @@ public class PainelDisciplina extends JPanel {
 			jcomboBoxTipo.setBackground(new Color(198,232,245));
 			jcomboBoxTipo.setModel(new DefaultComboBoxModel(new String[] {"Selecione","Teórica", "Teórica-Prática","Estágio"}));
 			jcomboBoxTipo.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tipo da Disciplina", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			jcomboBoxTipo.setBounds(260, 240, 179, 50);
+			jcomboBoxTipo.setBounds(257, 195, 179, 50);
 		}
 		return jcomboBoxTipo;
 	}
@@ -282,7 +234,7 @@ public class PainelDisciplina extends JPanel {
 	public JScrollPane getJScrollPanePreRequisito() {
 		if (JScrollPanePreRequisito == null) {
 			JScrollPanePreRequisito = new JScrollPane();
-			JScrollPanePreRequisito.setBounds(561, 179, 224, 100);
+			JScrollPanePreRequisito.setBounds(561, 134, 224, 100);
 			JScrollPanePreRequisito.setViewportView(getjListPreRequisito());
 		}
 		return JScrollPanePreRequisito;
@@ -291,14 +243,7 @@ public class PainelDisciplina extends JPanel {
 	public JButton getjButtonAdicionarPreRequisito() {
 		if (jButtonAdicionarPreRequisito == null) {
 			jButtonAdicionarPreRequisito = new JButton("Adicionar");
-<<<<<<< HEAD
-=======
-			jButtonAdicionarPreRequisito.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
->>>>>>> 64a1a394b7a8ac2448fbf053245823a1f6fa18a4
-			jButtonAdicionarPreRequisito.setBounds(454, 198, 97, 23);
+			jButtonAdicionarPreRequisito.setBounds(448, 153, 97, 23);
 		}
 		return jButtonAdicionarPreRequisito;
 	}
@@ -413,5 +358,25 @@ public class PainelDisciplina extends JPanel {
 			jSCrollPaneDisciplina.setSize(832, 148);
 		}
 		return jSCrollPaneDisciplina;
+	}
+	
+	public JComboBox <String> getjComboboxArea() {
+		
+		if(jComboboxArea == null) {
+			jComboboxArea = new JComboBox<String>();
+			jComboboxArea.setBackground(new Color(198,232,245));
+			jComboboxArea.setModel(new DefaultComboBoxModel<String>(new String[] {"Selecione"}));
+			jComboboxArea.addItem("Artes");
+			jComboboxArea.addItem("Ciências agrárias");
+			jComboboxArea.addItem("Ciências da saúde");
+			jComboboxArea.addItem("Ciências exatas e da terra");
+			jComboboxArea.addItem("Ciências humanas");
+			jComboboxArea.addItem("Ciências sociais aplicadas");
+			jComboboxArea.addItem("Engenharias");
+			jComboboxArea.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Área", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+			jComboboxArea.setBounds(391, 167, 177, 50);
+
+		}
+		return jComboboxArea;
 	}
 }

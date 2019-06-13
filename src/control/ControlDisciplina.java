@@ -43,8 +43,6 @@ public class ControlDisciplina implements  ActionListener,KeyListener  {
 		public void actionPerformed(ActionEvent e) {
 			
 			boolean nome = modeldisciplina().TesteNome();
-			boolean departamento = modeldisciplina().TesteDepartamento();
-			boolean codigodisciplina = modeldisciplina().TesteCodigoDisciplina();
 			boolean semestre = modeldisciplina().TesteSemestre();
 			boolean cargahoraria = modeldisciplina().TesteComboBoxCargaHoraria();
 			boolean tipodisciplina = modeldisciplina().TesteComboBoxTipoDisciplina();
@@ -53,14 +51,6 @@ public class ControlDisciplina implements  ActionListener,KeyListener  {
 				if(!(nome))
 				{
 					PainelDisciplina().displayErrorMessage("Digite um nome válido");
-				}
-				if(!(departamento))
-				{
-					PainelDisciplina().displayErrorMessage("Digite um nome de departamento válido");
-				}
-				if(!(codigodisciplina))
-				{
-					PainelDisciplina().displayErrorMessage("Digite um código de disciplina válido");
 				}
 				if(!(semestre))
 				{
@@ -74,7 +64,7 @@ public class ControlDisciplina implements  ActionListener,KeyListener  {
 				{
 					PainelDisciplina().displayErrorMessage("Selecione um tipo de disciplina");
 				}
-				else if(nome && departamento && codigodisciplina && semestre && cargahoraria && tipodisciplina)
+				else if(nome  && semestre && cargahoraria && tipodisciplina)
 				{	
 					modeldisciplina().GuardandoDados();
 					modeldisciplina().limpaCampos();

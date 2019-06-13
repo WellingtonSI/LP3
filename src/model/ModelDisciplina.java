@@ -55,7 +55,7 @@ public class ModelDisciplina {
 
 	}
 	
-	public boolean TesteDepartamento() {
+	/*public boolean TesteDepartamento() {
 		String numeros = "0123457899";
 		for (int i = 0; i < 10; i++) {
 		
@@ -70,9 +70,9 @@ public class ModelDisciplina {
 		} else
 			return true;
 
-	}
+	}*/
 	
-	public boolean TesteCodigoDisciplina() {
+	/*public boolean TesteCodigoDisciplina() {
 		try {
 			
 			int CodigoDisciplina = Integer.parseInt(paineldisciplina.getTextFieldCodigo().getText());
@@ -80,7 +80,7 @@ public class ModelDisciplina {
 		} catch (Exception e) {
 			return false;
 		}
-	}
+	}*/
 	
 	public boolean TesteSemestre() {
 		try {
@@ -129,7 +129,7 @@ public class ModelDisciplina {
 		//this.formaTrabalho = (String)  formadetrabalho.getSelectedItem();
 		
 		this.nome = (paineldisciplina.getTextFieldNome().getText().toUpperCase());
-		this.departamento = (paineldisciplina.getTextFieldDepartamento().getText());
+		//this.departamento = (paineldisciplina.getTextFieldDepartamento().getText());
 		// codigo da disciplina
 		this.semestre = Integer.parseInt(paineldisciplina.getTextFieldSemestre().getText());
 		
@@ -156,8 +156,8 @@ public class ModelDisciplina {
 	public void limpaCampos() {
 
 		getPainelDisciplina().getTextFieldNome().setText("");
-		getPainelDisciplina().getTextFieldCodigo().setText("");
-		getPainelDisciplina().getTextFieldDepartamento().setText("");
+		//getPainelDisciplina().getTextFieldCodigo().setText("");
+		//getPainelDisciplina().getTextFieldDepartamento().setText("");
 		getPainelDisciplina().getTextFieldSemestre().setText("");
 		getPainelDisciplina().getJcomboboxCargaHoraria().setSelectedIndex(0);
 		getPainelDisciplina().getJComboBoxCurso().setSelectedIndex(0);

@@ -42,7 +42,6 @@ public class PainelAluno extends JPanel  {
 	private JLabel lblrg;
 	private JLabel lbltitulo;
 	private JButton jButtonCadastrar;
-	private JComboBox<String> jcomboboxTurma;
 	private JComboBox<String> jcomboboxCurso;
 	private JPanel painelAluno;
 	private FormataMascaras formataMascaras;
@@ -83,7 +82,6 @@ public class PainelAluno extends JPanel  {
 			add(getjButtonCadastrar());
 			add(getLbltitulo());
 			add(getJComboBoxCurso());
-			add(getJcomboboxTurma());
 			add(getFormattedTextFieldRG());
 			add(getFormattedTextFieldCPF());
 			add(getJComboBoxPesquisa());
@@ -219,18 +217,6 @@ public class PainelAluno extends JPanel  {
 			jcomboboxCurso.setBounds(218, 193, 147, 50);
 		}
 		return jcomboboxCurso;
-	}
-	
-	public JComboBox <String> getJcomboboxTurma() {
-		if(jcomboboxTurma == null) {
-			jcomboboxTurma = new JComboBox<String>();
-			jcomboboxTurma.setBackground(new Color(198,232,245));
-			jcomboboxTurma.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-			jcomboboxTurma.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Turma", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-			jcomboboxTurma.setBounds(538, 193, 147, 50);
-
-		}
-		return jcomboboxTurma;
 	}
 	
 
